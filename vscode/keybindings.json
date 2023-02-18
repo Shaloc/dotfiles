@@ -1,0 +1,22 @@
+// Place your key bindings in this file to override the defaults
+// OS	Uploading an image from clipboard	Uploading images from explorer	Uploading an image from input box
+// Windows/Unix	Ctrl + Alt + U	Ctrl + Alt + E	Ctrl + Alt + O
+// OsX	Cmd + Opt + U	Cmd + Opt + E	Cmd + Opt + O
+[{
+    "key": "ctrl+cmd+=",
+    "command": "wwm.aligncode",
+    "when": "editorTextFocus && !editorReadonly"
+},
+{
+    "key": "ctrl+[Backquote]",
+    "command": "workbench.action.terminal.toggleTerminal"
+},
+{
+    "key": "cmd+k cmd+p",
+    "command": "workbench.action.duplicateWorkspaceInNewWindow"
+},
+{
+    "key": "alt+t",
+    "command": "workbench.action.createTerminalEditor"
+}
+]

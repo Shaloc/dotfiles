@@ -1,0 +1,498 @@
+{
+  "editor.fontFamily": "'Operator Mono Lig', 'JetBrainsMono NF', 'Iosevka Mayukai Codepro', 'OPPOSans NF'",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss06', 'zero'",
+  "editor.codeLensFontFamily": "'JetBrainsMono NF', 'OPPOSans NF'",
+  "editor.renderWhitespace": "boundary",
+  "editor.autoIndent": "advanced",
+  "editor.wrappingIndent": "indent",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.accessibilitySupport": "off",
+  "editor.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.glyphMargin": true,
+  "editor.guides.bracketPairs": true,
+  "editor.inlayHints.enabled": "on",
+  "editor.inlayHints.fontSize": 10,
+  "editor.inlayHints.padding": true,
+  "editor.lineNumbers": "interval",
+  "editor.stickyScroll.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.rulers": [100],
+  "editor.hover.sticky": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock",
+    "*.out": "${capture}.aux, ${capture}.run.xml, ${capture}.blg, ${capture}.fls, ${capture}.log, ${capture}.synctex.gz, ${capture}.thm, ${capture}.toc, ${capture}.xdv, ${capture}.fdb_latexmk",
+    "*.bib": "${capture}.bbl, ${capture}.bcf"
+  },
+  // window settings
+  "window.dialogStyle": "custom",
+  "window.commandCenter": true,
+  // workbench settings
+  "workbench.list.defaultFindMode": "filter",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.list.smoothScrolling": true,
+  "workbench.tree.expandMode": "singleClick",
+  "workbench.tree.indent": 10,
+  "workbench.fontAliasing": "antialiased",
+  // "workbench.fontAliasing": "auto",
+  "workbench.productIconTheme": "icons-carbon",
+  // terminal settings: windows
+  "terminal.integrated.fontSize": 13.5,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.fontFamily": "'Operator Mono Lig', 'JetBrainsMono NF'",
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\Users\\Shaloc\\scoop\\shims;${env:PATH}"
+  },
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.unicodeVersion": "11",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.shellIntegration.enabled": true,
+  // files
+  "files.autoGuessEncoding": true,
+  "files.insertFinalNewline": true,
+  "files.simpleDialog.enable": true,
+  "files.refactoring.autoSave": true,
+  // search
+  "search.exclude": {
+    "**/*.code-search": true,
+    "**/.git": true,
+    "**/.github": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+  // extensions
+  "extensions.ignoreRecommendations": true,
+  // extensions: errorLens
+  "errorLens.excludeBySource": ["cSpell", "Grammarly", "eslint", "isort"],
+  // extensions: latex workshop
+  "latex-workshop.chktex.exec.path": "C:\\texlive\\2021\\bin\\win32\\chktex.exe",
+  "latex-workshop.texdoc.path": "C:\\texlive\\2021\\bin\\win32\\texdoc.exe",
+  "latex-workshop.synctex.path": "C:\\texlive\\2021\\bin\\win32\\synctex.exe",
+  "latex-workshop.texcount.path": "C:\\texlive\\2021\\bin\\win32\\texcount.exe",
+  "latex-workshop.latexindent.path": "C:\\texlive\\2021\\bin\\win32\\latexindent.exe",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {}
+    },
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk 🔃",
+      "tools": ["latexmk"]
+    },
+    {
+      "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+    },
+    {
+      "name": "xelatex",
+      "tools": ["xelatex"]
+    },
+    {
+      "name": "xelatex ➞ bibtex ➞ xelatex × 2",
+      "tools": ["xelatex", "bibtex", "xelatex", "xelatex"]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  // C_cpp settings
+  "C_Cpp.autocomplete": "Default",
+  "C_Cpp.default.compilerPath": "C:\\Users\\Shaloc\\scoop\\apps\\msys2\\current\\usr\\bin\\g++.exe",
+  "C_Cpp.default.includePath": [
+    "C:\\Users\\Shaloc\\scoop\\apps\\msys2\\current\\usr\\lib\\gcc\\x86_64-pc-msys\\1.2.0\\include\\c++",
+    "C:\\Users\\Shaloc\\scoop\\apps\\msys2\\current\\usr\\lib\\gcc\\x86_64-pc-msys\\11.2.0\\include"
+  ],
+  "C_Cpp.clang_format_style": "{ IndentWidth:  4, TabWidth: 4, UseTab: Never,  BreakBeforeBraces: Allman,  AllowShortIfStatementsOnASingleLine: false, }",
+  "C_Cpp.clang_format_path": "clang-format",
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true
+  },
+  "python.formatting.yapfArgs": [
+    "--style",
+    "{based_on_style: chromium, indent_width: 20}"
+  ],
+  "python.formatting.blackArgs": ["--line-length", "100"],
+  "python.analysis.typeCheckingMode": "off",
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  // Ext: picgo
+  "picgo.picBed.github.token": "1fc589740343d0f6064ab2e46e417aab9b9a6831",
+  "picgo.picBed.github.repo": "Shaloc/blog-pics",
+  "picgo.picBed.github.branch": "master",
+  "picgo.picBed.current": "upyun",
+  "picgo.picBed.upyun.url": "https://upaiimg.shaloc.site",
+  "picgo.picBed.upyun.bucket": "shaloc-blg-image-1",
+  "picgo.picBed.upyun.operator": "picgouploader",
+  "picgo.picBed.upyun.password": "kgJSpXfMkmrpLnkwDCvuUu9nGg6NBH24",
+  "picgo.picBed.upyun.path": "pics/",
+  "picgo.dataPath": "",
+  "todo-tree.highlights.enabled": false,
+  "todo-tree.general.statusBar": "tags",
+  "todohighlight.keywords": [
+    "REVIEW:",
+    {
+      "text": "NOTE:",
+      "color": "#ff0000",
+      "backgroundColor": "yellow",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "HACK:",
+      "color": "#000000",
+      "isWholeLine": false
+    }
+  ],
+
+  "python.languageServer": "Pylance",
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YmFzaWM7ZXI7dW1sO2VsZWN0cmljYWw7Zmx1aWRfcG93ZXJcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltcIkZGODAwMFwiLFwiMDA5OTAwXCIsXCIwMDY2MDBcIixcIjMzRkYzM1wiXSxcImZvcm1hdFdpZHRoXCI6MjQwLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODI3LFwiaGVpZ2h0XCI6MTE2OX0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6dHJ1ZSxcInVpXCI6XCJcIn0ifQ==",
+  "hediet.vscode-drawio.theme": "Kennedy",
+  "settingsSync.ignoredExtensions": ["alios.alios-studio"],
+  "extensions.autoUpdate": true,
+  "clang-format.language.c.enable": true,
+  // "clang-format.language.c.style": "{ IndentWidth:  4, TabWidth: 4, UseTab: Never,  BreakBeforeBraces: Allman,  AllowShortIfStatementsOnASingleLine: false, Standard: Auto, ReflowComments: true, BreakBeforeBraces: Custom, BraceWrapping: {AfterClass: false, AfterControlStatement: false, AfterEnum: false, AfterFunction: false, AfterNamespace: false, AfterStruct: false, AfterUnion: false, BeforeCatch: true, BeforeElse: true, IndentBraces: false} }",
+  "clang-format.language.cpp.style": "{ IndentWidth:  4, TabWidth: 4, UseTab: Never,  BreakBeforeBraces: Allman,  AllowShortIfStatementsOnASingleLine: false, Standard: Auto, ReflowComments: true, BreakBeforeBraces: Custom, BraceWrapping: {AfterClass: false, AfterControlStatement: false, AfterEnum: false, AfterFunction: false, AfterNamespace: false, AfterStruct: false, AfterUnion: false, BeforeCatch: true, BeforeElse: true, IndentBraces: false} }",
+  "clang-tidy.lintOnSave": true,
+  "clang-tidy.executable": "clang-tidy",
+  "[cpp]": {
+    "editor.defaultFormatter": null
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "remote.SSH.remotePlatform": {
+    "172.28.170.241": "linux",
+    "192.168.233.128": "linux",
+    "114.212.120.216": "linux",
+    "192.168.31.231": "linux"
+  },
+  "tabnine.experimentalAutoImports": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "security.workspace.trust.untrustedFiles": "open",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "files.associations": {
+    "TARGETS": "python",
+    "*.tpl": "jinja"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "github.copilot.inlineSuggest.enable": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.ignoreLegacyWarning": true,
+  // "python.linting.pylintArgs": [
+  //     "--disable=W0301,C0301,C0303,invalid-name,bad-whitespace,relative-import,unused-import,unused-variable,broad-except,wrong-import-position,missing-docstring,wrong-import-order,len-as-condition,old-style-class,trailing-newlines,misplaced-comparison-constant,superfluous-parens"
+  // ],
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": true,
+    "python": true,
+    "latex": false,
+    "bibtex": false,
+    "cpp": false,
+    "shellscript": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "security.workspace.trust.enabled": false,
+  "indentRainbow.excludedLanguages": ["plaintext", "cpp", "c"],
+  "vim.autoindent": true,
+  "vim.easymotion": true,
+  "vim.leader": "<Space>",
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.matchpairs": "(:),{:},[:]",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "h"],
+      "after": ["^"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["$"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "after": [":", "w", "<CR>"]
+    },
+    {
+      "before": ["<leader>", "o"],
+      "after": ["<C-o>"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "after": [":", "q", "<CR>"]
+    },
+    {
+      "before": ["<leader>", "="],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.formatDocument",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "-"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.organizeImports",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["K"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.peekDeclaration",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "h"],
+      "after": ["^"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["$"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "after": [":", "w", "<CR>"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-j>"],
+      "commands": "selectPreviousSuggestion",
+      "when": "suggestWidgetVisible"
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": "selectNextSuggestion",
+      "when": "suggestWidgetVisible"
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "leetcode.filePath": {
+    "default": {
+      "folder": "",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    }
+  },
+  "workbench.sideBar.location": "right",
+  "go.toolsManagement.autoUpdate": true,
+  "git.confirmSync": false,
+  "workbench.preferredLightColorTheme": "Vitesse Light",
+  "workbench.preferredDarkColorTheme": "Vitesse Dark",
+  "workbench.editor.tabCloseButton": "left",
+  // "window.nativeTabs": true,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "python.linting.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "isort.args": ["--profile", "black", "-l", "100"],
+  "isort.severity": { "W": "Warning", "E": "Warning" },
+  "remote.extensionKind": {
+    "asvetliakov.vscode-neovim": [
+      "workspace"
+    ]
+  },
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/gaobowen.gbw/.local/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "git.path": "/opt/homebrew/bin/git",
+  "python.linting.pylintEnabled": false,
+  "explorer.confirmDelete": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "trunk.trunkGrayOutNonBlockingIssues": true,
+  "files.exclude": {
+    "**/.trunk/*out": true
+  },
+  "files.watcherExclude": {
+    "**/.trunk/*out": true
+  },
+  "cSpell.userWords": [
+    "alibabacloud",
+    "alimake",
+    "aliyuncs",
+    "Aone",
+    "apsarapangu",
+    "apscheduler",
+    "asgiref",
+    "autouse",
+    "ccflags",
+    "CHANGEFREE",
+    "changeserver",
+    "changetype",
+    "checkhold",
+    "Chunkserver",
+    "Codepro",
+    "conds",
+    "cxxflags",
+    "empid",
+    "exwrite",
+    "freezegun",
+    "groupmeta",
+    "Iosevka",
+    "jsonschema",
+    "ldflags",
+    "libpangu",
+    "LOGSTORE",
+    "Mayukai",
+    "mgmt",
+    "networkidle",
+    "OPPO",
+    "pangu",
+    "panshirpc",
+    "PLANSTORE",
+    "Precheck",
+    "predaily",
+    "pydantic",
+    "pytz",
+    "realname",
+    "redoc",
+    "retcode",
+    "sanic",
+    "serverrole",
+    "staragent",
+    "taskmeta",
+    "thirdparty",
+    "timestr",
+    "tmpl",
+    "unacked",
+    "WEBSERVER",
+    "workerserver"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "playwright.reuseBrowser": true,
+  "workbench.colorTheme": "Default Dark+ Experimental",
+  "rust-analyzer.highlighting.strings": true,
+  "gitlens.mode.active": "review",
+  "explorer.confirmDragAndDrop": false,
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "jupyter.askForKernelRestart": false,
+  "window.zoomLevel": 2
+}
