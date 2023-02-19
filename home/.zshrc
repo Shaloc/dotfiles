@@ -23,6 +23,18 @@ alias icat="kitty +kitten icat"
 alias trans="kitty +kitten transfer"
 alias recv="kitty +kitten transfer --direction=receive"
 
+function proxy() {
+  export https_proxy=http://127.0.0.1:6152
+  export http_proxy=http://127.0.0.1:6152
+  export all_proxy=socks5://127.0.0.1:6153
+}
+
+function unproxy() {
+  export https_proxy=""
+  export http_proxy=""
+  export all_proxy=""
+}
+
 # ~/r/i for my projects
 function i() {
     cd ~/r/i/$1
@@ -48,6 +60,14 @@ function dir() {
 
 function glp() {
   git --no-pager log -$1
+}
+
+function gd() {
+  if [[ -z $1 ]] then
+    git diff --color | diff-so-fancy
+  else
+    git diff --color $1 | diff-so-fancy
+  fi
 }
 
 function gdc() {
