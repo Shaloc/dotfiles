@@ -78,8 +78,19 @@ function gdc() {
   fi
 }
 
-export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
+export KEYID=0x640E4B5501739027
 
+secret () {
+        output=~/"${1}".$(date +%s).enc
+        gpg --encrypt --armor --output ${output} -r ${KEYID}  "${1}" && echo "${1} -> ${output}"
+}
+
+reveal () {
+        output=$(echo "${1}" | rev | cut -c16- | rev)
+        gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
+}
+
+export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv" 
 export PATH="$PYENV_ROOT/bin:$PATH" 
 eval "$(pyenv init --path)" 
@@ -89,4 +100,7 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export GOPATH="/Users/shaloc/go"
 export GOBIN="/Users/shaloc/go/bin"
 export PATH=${GOBIN}:$PATH
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
