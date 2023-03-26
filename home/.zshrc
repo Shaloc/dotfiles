@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 
 SPACESHIP_TIME_SHOW=true
-SPACESHIP_CHAR_SYMBOL="❯ "
+# SPACESHIP_CHAR_SYMBOL="❯ "
 ZSH_THEME="spaceship"
 
 plugins=(
@@ -88,6 +88,10 @@ secret () {
 reveal () {
         output=$(echo "${1}" | rev | cut -c16- | rev)
         gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
+}
+
+function label() {
+    yabai -m space $1 --label "$1 $2"
 }
 
 export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"

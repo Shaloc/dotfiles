@@ -1,0 +1,95 @@
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+# FONT_FAMILY="JetBrainsMono Nerd Font"
+FONT_FAMILY="OperatorMonoSSmLig NFM"
+ICON_FONT="sketchybar-app-font:Regular:12.0"
+# ICON_FONT="OperatorMonoSSmLig NFM:Book:12.0"
+
+SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
+
+sketchybar --bar height=28 \
+                 blur_radius=1 \
+                 position=bottom \
+                 sticky=off \
+                 padding_left=8 \
+                 padding_right=8 \
+                 color=0xff000000 \
+                 y_offset=-1 \
+                 font_smoothing=on
+
+sketchybar --default updates=when_shown \
+                     label.drawing=on \
+                     icon.drawing=on \
+                     background.color=0xff282930 \
+                     background.border_color=0xff000000 \
+                     background.border_width=2 \
+                     background.corner_radius=5 \
+                     background.padding_left=2 \
+                     background.padding_right=2 \
+                     background.height=24 \
+                     icon.font="$ICON_FONT" \
+                     icon.color=0xffbd93f9 \
+                     label.font="$FONT_FAMILY:Light:12.0" \
+                     label.color=0xfff8f8f2 \
+                     label.padding_left=12 \
+                     label.padding_right=12 \
+                     icon.padding_left=12 \
+                     icon.padding_right=-4 \
+                     icon.y_offset=-1
+
+export SPACES=("code1" "code2" "db" "api" "work" "terminal" "browser" "misc")
+for i in "${!SPACES[@]}"
+do
+  sid=$(($i+1))
+  sketchybar --add space space.$sid left \
+  sketchybar --set space.$sid associated_space=$sid \
+                              icon.font="$FONT_FAMILY:Light:12.0" \
+                              label.font="$ICON_FONT" \
+                              icon="${SPACES[i]}" \
+                              icon.y_offset=0 \
+                              label.y_offset=-1 \
+                              click_script="yabai -m space --focus $sid 2>/dev/null" \
+                              script="$PLUGIN_DIR/workspaces.sh" \
+             --subscribe space.$sid front_app_switched
+done
+
+sketchybar --add event window_focus \
+           --add event title_change \
+           --add event spotify_change $SPOTIFY_EVENT
+
+sketchybar --add item time right \
+           --set time update_freq=1 \
+                      script="$PLUGIN_DIR/time.sh" \
+                      icon="" \
+                      icon.font="$FONT_FAMILY:Medium:13.0" \
+                      icon.y_offset=0 \
+           --add item date right \
+           --set date update_freq=10 \
+                      script="$PLUGIN_DIR/date.sh" \
+                      icon="" \
+                      icon.font="$FONT_FAMILY:Medium:13.0" \
+                      icon.y_offset=0 \
+           --add item focus center \
+           --set focus script="$PLUGIN_DIR/focus.sh" \
+                       icon.color=0xff50fa7b \
+                       label.color=0xff50fa7b \
+           --subscribe focus front_app_switched window_focus title_change
+
+sketchybar --add item temp right \
+           --set temp update_freq=900 \
+                      icon.font="qweather-icons:Regular:12.0" \
+                      script="$PLUGIN_DIR/weather.sh" \
+                      click_script="/usr/bin/open /System/Applications/Weather.app"
+
+sketchybar -m --add event song_update com.apple.iTunes.playerInfo
+sketchybar --add item music right \
+           --set music label.drawing=off \
+                       icon.drawing=off \
+                       update_freq=10 \
+                       icon.font="sketchybar-app-font:Regular:11.0" \
+                       icon.y_offset=0 \
+                       icon=":statistics:" \
+                       script="$PLUGIN_DIR/music.sh" \
+                       click_script="$PLUGIN_DIR/music_click.sh" \
+          --subscribe music song_update
+
+sketchybar --update
