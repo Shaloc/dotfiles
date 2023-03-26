@@ -1,10 +1,13 @@
 #!/usr/bin/env sh
 echo "1"
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 echo "2"
 # global settings
+# yabai -m config mouse_follows_focus          off
+# yabai -m config focus_follows_mouse          off
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
@@ -13,6 +16,7 @@ yabai -m config window_topmost               off
 yabai -m config window_shadow                on
 yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.0
+yabai -m config window_animation_duration    0.05
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        1.0
 yabai -m config window_border                off
@@ -52,5 +56,18 @@ yabai -m rule --add app="^Alfred Preferences$" manage=off
 yabai -m rule --add app="Raycast" manage=off
 yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^Ding$" manage=off
+yabai -m rule --add app="^郎$" manage=off
+yabai -m rule --add app="^DBeaver$" title="保存结果集变更" manage=off
+yabai -m rule --add app="DBeaver Enterprise" title="Preview changes" manage=off
+yabai -m rule --add app="^钉$" title="^Window$" manage=off
+yabai -m rule --add app="^会议$" manage=off
+# yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
+# yabai -m signal --add event=window_minimized active=yes action="if \$(yabai -m query --windows --window \$YABAI_WINDOW_ID | jq -r '.\"is-floating\"'); then yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null; fi"
+
+# sketchybar events (.yabairc)
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal -add event=window_minimized action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
 
 echo "yabai configuration loaded.."
+
