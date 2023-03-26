@@ -180,4 +180,5 @@ case $@ in
     "9998") echo "" ;;
     "9999") echo "" ;;
     "qweather") echo "" ;;
+    *) echo "" ;;
 esac
