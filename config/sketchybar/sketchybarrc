@@ -36,7 +36,7 @@ sketchybar --default updates=when_shown \
                      icon.padding_right=-4 \
                      icon.y_offset=-1
 
-export SPACES=("code1" "code2" "db" "api" "work" "terminal" "browser" "misc")
+export SPACES=("code1" "code2" "db" "api" "work" "dev1" "dev2" "misc1" "misc2")
 for i in "${!SPACES[@]}"
 do
   sid=$(($i+1))
@@ -47,6 +47,8 @@ do
                               icon="${SPACES[i]}" \
                               icon.y_offset=0 \
                               label.y_offset=-1 \
+                              icon.padding_left=6 \
+                              label.padding_right=6 \
                               click_script="yabai -m space --focus $sid 2>/dev/null" \
                               script="$PLUGIN_DIR/workspaces.sh" \
              --subscribe space.$sid front_app_switched

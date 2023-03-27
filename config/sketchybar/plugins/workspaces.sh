@@ -12,7 +12,7 @@ fi
 
 if [[ $SENDER == "front_app_switched" ]]; then
     
-    SPACES=("code1" "code2" "db" "api" "work" "terminal" "browser" "misc")
+    SPACES=("code1" "code2" "db" "api" "work" "dev1" "dev2" "misc1" "misc2")
 
     for i in "${!SPACES[@]}"; do
         sid=$(($i+1))
