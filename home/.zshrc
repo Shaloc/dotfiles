@@ -22,6 +22,7 @@ alias s="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
 alias trans="kitty +kitten transfer"
 alias recv="kitty +kitten transfer --direction=receive"
+alias n="nnn"
 
 function proxy() {
   export https_proxy=http://127.0.0.1:6152
@@ -108,3 +109,7 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'
+export EDITOR=nvim
+
+source ~/.secret.sh
